@@ -43,7 +43,7 @@ export default function Home() {
             const scrollWidth = carousel.scrollWidth * ((picArray.length - 4)/picArray.length); // Proportional to the ratio between the actually used images and the total images in array. For 8 images with 4 repetitions, the proportion is 8/12, or 2/3. For 4 images with 4 repetitions, is 4/8, or 1/2.
 
             const animate = () => {
-                scrollPosition += 1; // Scroll speed
+                scrollPosition += (bounds.width > 600) ? 0.5 : 0.25; // Scroll speed
                 if (scrollPosition >= scrollWidth + 10) {
                 scrollPosition = 0; // Reset scroll position seamlessly
                 }
@@ -87,9 +87,9 @@ export default function Home() {
     }, [currentImageIndex])
 
     return (
-        <div ref={ref} className="sm:min-h-[150vh] h-full pt-5 sm:pt-12 overflow-hidden">
+        <div ref={ref} className="flex flex-col sm:min-h-[150vh] h-full pt-5 sm:pt-12 overflow-hidden">
 
-            {(bounds.width < 600 && bounds.width != 0) && <div className="carousel w-[calc(100%_-_1em)] mx-auto">
+            {(bounds.width < 0 && bounds.width != 0) && <div className="carousel w-[calc(100%_-_1em)] mx-auto">
                 <Image src={picArray[currentImageIndex]} alt="Image 1" className={`${isActive ? "active" : ""} w-full rounded-2xl transition-opacity duration-[2s] ease-in-out`} 
                 style={{
                     WebkitMaskImage: "linear-gradient(to top, transparent 0%, black 50%)",
@@ -100,12 +100,12 @@ export default function Home() {
 
 
 
-            {(bounds.width >= 600) && //IMAGE CAROUSEL
+            {(bounds.width >= 0) && //IMAGE CAROUSEL
             <div
-                className="flex w-4/5 mx-auto overflow-hidden sm:pl-12"
+                className="flex h-[60vh] w-auto sm:w-4/5 sm:h-[50vh] mx-auto overflow-hidden sm:pl-12"
                 style={{ whiteSpace: "nowrap" }}>
 
-                <div className="relative">
+                <div className="relative w-full h-full">
                     <div ref={carouselRef} className="flex transition-none gap-x-[20px]">
                     {picArray.map((img, i) => (
                         <Image
@@ -113,7 +113,7 @@ export default function Home() {
                         src={img}
                         alt={`Image ${i + 1}`}
                         priority
-                        className="rounded-3xl opacity-0 sm:w-[400px]"
+                        className="rounded-3xl opacity-0 h-[60vh] object-cover sm:w-[400px] sm:h-[50vh]"
                         style={{
                             animation: `fadeIn 1s ease-out`,
                             animationDelay: `${i * 0.25}s`,
@@ -124,7 +124,7 @@ export default function Home() {
                     ))}
             
                     </div>
-                <div className="absolute w-2 lg:w-10 h-full -left-12 top-0 bg-gradient-to-r from-[--background]" />
+                <div className="absolute w-2 lg:w-10 h-full left-0 sm:-left-12 top-0 bg-gradient-to-r from-[--background]" />
                 <div className="absolute w-2 lg:w-10 h-full right-0 top-0 bg-gradient-to-l from-[--background]" />
 
                 </div>
@@ -135,22 +135,22 @@ export default function Home() {
 
 
 
-        <div className="relative -top-10 flex flex-col h-64 sm:h-auto justify-evenly">
+        <div className="relative flex flex-col h-[calc(40vh_-_8rem)] sm:h-[calc(50vh_-_8rem)] justify-evenly">
              
-            <h1 className="font-brittany text-6xl text-center w-full lg:text-9xl text-[#754927] animate-fromaboveop select-none opacity-0" style={{animationDelay: "0.5s", animationFillMode: "forwards"}}>
+            <h1 className="font-brittany text-6xl text-center w-full lg:text-7xl xl:text-9xl xl:mb-10 text-[#754927] animate-fromaboveop select-none opacity-0" style={{animationDelay: "0.5s", animationFillMode: "forwards"}}>
             Bem-vindos!
             </h1>
             
             
-            <h2 className="text-xl line-clamp-2 w-full text-center px-5 my-5 md:mt-24 lg:text-3xl text-[#754927] animate-fromabelowop opacity-0" style={{animationDelay: "1s", animationFillMode: "forwards"}}>
+            <h2 className="text-xl line-clamp-2 w-full text-center px-5 my-0 md:mt-0 lg:text-3xl text-[#754927] animate-fromabelowop opacity-0" style={{animationDelay: "1s", animationFillMode: "forwards"}}>
             Esperamos que se sintam em casa e aproveitem ao máximo a estadia.
             </h2>
             
-            {(!isInfoOnScreen) && (
-                <p className="text-xl text-[#754927] animate-fromabelowop w-full text-center opacity-0 invisible sm:visible" style={{animationDelay: "1.5s", animationFillMode: "forwards"}}>
-                {(bounds.width < 600) ? "Clique no ícone do menu no canto superior direito para acessar o menu." : "Arraste para baixo para acessar o menu."}
-                </p>
-            )}
+            
+            <p className="absolute sm:relative text-xl text-[#754927] animate-fromabelowop w-full text-center opacity-0 invisible sm:visible" style={{animationDelay: "1.5s", animationFillMode: "forwards"}}>
+            {(bounds.width < 600) ? "Clique no ícone do menu no canto superior direito para acessar o menu." : "Arraste para baixo para acessar o menu."}
+            </p>
+            
         </div>
 
         {isInfoOnScreen && <Guia/>}
