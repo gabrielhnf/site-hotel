@@ -14,7 +14,7 @@ const Emergencias = () => {
         <div className="relative flex h-[calc(100vh_-_4rem)] sm:h-[calc(100vh_-_5rem)]">
 
             <div className="relative flex flex-col items-center justify-evenly
-                            w-full h-1/2 mb-auto mt-[25%] mx-2
+                            w-full min-h-1/2 mb-auto mt-[25%] mx-2
                             sm:w-2/3 sm:h-1/2 sm:mx-auto sm:my-auto
                             md:w-2/3 md:h-2/3 md:mx-auto md:my-auto
                             lg:w-1/3 lg:h-2/3 lg:mx-auto lg:my-auto

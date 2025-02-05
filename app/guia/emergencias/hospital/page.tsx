@@ -55,7 +55,7 @@ const Farmacia = () => {
 
                     <div className="relative 
                                     flex flex-col flex-grow justify-evenly
-                                    w-full min-h-[10%]
+                                    w-full min-h-[50%]
                                     p-5 rounded-2xl border-2 border-[#754927]">
 
                             <p className="absolute left-5 top-0

@@ -35,8 +35,8 @@ const Localizacao = () => {
     };
 
     return(
-        <div className="relative flex h-[calc(100vh_-_4rem)] sm:h-[calc(100vh_-_5rem)]">
-            <div className="relative w-[95%] mx-2 sm:w-2/3 h-[90%] sm:mx-auto mb-auto mt-10 sm:my-auto flex flex-col items-center bg-[#ffffff] rounded-2xl shadow-2xl py-4 pt-10 gap-y-5 justify-between" style={{animation: "pulseIn 0.5s ease-in-out"}}>
+        <div className="relative flex flex-col min-h-[calc(100vh_-_4rem)] sm:min-h-[calc(100vh_-_5rem)]">
+            <div className="relative w-[95%] mx-2 sm:w-2/3 h-auto sm:mx-auto mb-auto mt-10 sm:my-auto flex flex-col items-center bg-[#ffffff] rounded-2xl shadow-2xl py-4 pt-10 gap-y-5 justify-between" style={{animation: "pulseIn 0.5s ease-in-out"}}>
                 <h1 className="text-3xl lg:text-5xl text-[#754927] font-brittany font-medium mb-10">Píer Comodoro Magalhães</h1>
 
                 <h1 className="text-[#754927]
@@ -49,7 +49,7 @@ const Localizacao = () => {
                         <div className="flex flex-row items-center justify-center gap-x-2
                                         w-1/2 h-full">
 
-                            <Image src={checkin} alt="Check-In" className="h-1/2 sm:h-2/3 w-fit"/>
+                            <Image src={checkin} alt="Check-In" className="h-6 sm:h-12 w-fit"/>
                             <p className="text-[#754927] text-sm sm:text-md md:text-xl before:content-['Abre:_']">08:00h</p>
 
                         </div>
@@ -57,14 +57,14 @@ const Localizacao = () => {
                         <div className="flex flex-row items-center justify-center gap-x-2 
                                         w-1/2 h-full">
 
-                            <Image src={checkout} alt="Check-Out" className="h-1/2 sm:h-2/3 w-fit"/>
+                            <Image src={checkout} alt="Check-Out" className="h-6 sm:h-12 w-fit"/>
                             <p className="text-[#754927] text-sm sm:text-md md:text-xl before:content-['Fecha:_']">18:00h</p>
                         </div>
                 </div>
 
                 <div className="relative 
                                     flex flex-col flex-grow justify-evenly
-                                    w-[95%] min-h-[10%]
+                                    w-[95%] min-h-[40%]
                                     p-2 sm:p-5 rounded-2xl border-2 border-[#754927]">
 
                             <p className="absolute left-5 top-0
@@ -72,33 +72,33 @@ const Localizacao = () => {
                                           -translate-y-1/2
                                           bg-white text-[#754927]">Informações Gerais</p>
 
-                            <div className="flex flex-row items-center justify-start gap-x-2
-                                            w-fit h-10">
-                                    
-                                    <Image src={address} alt="Endereço" className="h-2/3 w-fit"/>
-                                    <p className="text-[#754927] text-md sm:text-xl md:text-2xl">Baía de Ubatuba</p>
-                            
-                            </div>
-
-                            <div className="flex flex-row items-center justify-start gap-x-2
-                                            w-fit h-10">
-                                    
-                                    <Image src={distance} alt="Distância" className="h-2/3 w-fit"/>
-                                    <p className="text-[#754927] text-md sm:text-xl md:text-2xl">Distância de 1,1km do apartamento.</p>
-                            
-                            </div>
-
-                            <div className="flex flex-row items-center justify-start gap-x-2
-                                            w-fit h-10">
-                                    
-                                    <Image src={car} alt="Tempo a Pé" className="h-2/3 w-fit"/>
-                                    <p className="text-[#754927] text-md sm:text-xl md:text-2xl">À 3 minutos de carro.</p>
-                            
+                            <div className="w-full h-full overflow-auto">
+                                <div className="flex flex-row items-center justify-start gap-x-2
+                                                w-fit h-10">
+                                
+                                        <Image src={address} alt="Endereço" className="h-2/3 w-fit"/>
+                                        <p className="text-[#754927] text-md sm:text-xl md:text-2xl">Baía de Ubatuba</p>
+                                
+                                </div>
+                                <div className="flex flex-row items-center justify-start gap-x-2
+                                                w-fit h-10">
+                                
+                                        <Image src={distance} alt="Distância" className="h-2/3 w-fit"/>
+                                        <p className="text-[#754927] text-md sm:text-xl md:text-2xl">Distância de 1,1km do apartamento.</p>
+                                
+                                </div>
+                                <div className="flex flex-row items-center justify-start gap-x-2
+                                                w-fit h-10">
+                                
+                                        <Image src={car} alt="Tempo a Pé" className="h-2/3 w-fit"/>
+                                        <p className="text-[#754927] text-md sm:text-xl md:text-2xl">À 3 minutos de carro.</p>
+                                
+                                </div>
                             </div>
 
                     </div>
                 
-                <div className="w-full px-5 pb-3 sm:pb-0 h-1/3 xl:h-[40%] relative">
+                <div className="w-full px-5 pb-3 sm:pb-0 h-[10rem] xl:h-[20rem] relative">
                     <button onClick={scrollLeft} className="absolute left-6 top-1/2 transform -translate-y-1/2 z-10 bg-white p-2 rounded-full shadow-lg">
                         <Image src={left} alt="Scroll left" className="h-[32px] w-fit"/>
                     </button>
@@ -146,6 +146,8 @@ const Localizacao = () => {
                     />
                 </div>
             }
+
+            <div className="w-full h-20 sm:h-8"/>
         </div>
     )
 }

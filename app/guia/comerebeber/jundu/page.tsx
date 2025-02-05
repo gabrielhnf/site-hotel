@@ -18,13 +18,13 @@ import { redirect } from "next/navigation";
 const JunduLoungeBar = () => {
 
     return(
-        <div className="relative flex
-                        h-[calc(100vh_-_4rem)] 
-                        sm:h-[calc(100vh_-_5rem)]">
+        <div className="relative flex flex-col
+                        min-h-[calc(100vh_-_4rem)] 
+                        sm:min-h-[calc(100vh_-_5rem)]">
         
             <div className="relative
                             flex flex-col items-center justify-start gap-y-5
-                            w-full h-4/5 mx-2 my-auto
+                            w-[95%] h-auto mx-2 my-auto
                             md:w-4/5 md:mx-auto
                             lg:w-2/3 lg:mx-auto
                             xl:w-1/3 xl:mx-auto
@@ -51,7 +51,7 @@ const JunduLoungeBar = () => {
                         <div className="flex flex-row items-center justify-center gap-x-2
                                         w-1/2 h-full">
 
-                            <Image src={checkin} alt="Check-In" className="h-1/2 sm:h-2/3 w-fit"/>
+                            <Image src={checkin} alt="Check-In" className="h-6 sm:h-12 w-fit"/>
                             <p className="text-[#754927] text-sm sm:text-md md:text-xl sm:before:content-['Abre:_']">11:30h</p>
 
                         </div>
@@ -59,7 +59,7 @@ const JunduLoungeBar = () => {
                         <div className="flex flex-row items-center justify-center gap-x-2 
                                         w-1/2 h-full">
 
-                            <Image src={checkout} alt="Check-Out" className="h-1/2 sm:h-2/3 w-fit"/>
+                            <Image src={checkout} alt="Check-Out" className="h-6 sm:h-12 w-fit"/>
                             <p className="text-[#754927] text-sm sm:text-md md:text-xl sm:before:content-['Fecha:_']">00:00h</p>
 
                         </div>
@@ -68,7 +68,7 @@ const JunduLoungeBar = () => {
 
                     <div className="relative 
                                     flex flex-col flex-grow justify-evenly
-                                    w-full min-h-[10%]
+                                    w-full min-h-[40%] max-h-[20rem]
                                     p-5 rounded-2xl border-2 border-[#754927]">
 
                             <p className="absolute left-5 top-0
@@ -127,11 +127,13 @@ const JunduLoungeBar = () => {
 
                     </div>
 
-                <button className="w-fit h-fit" onClick={() => redirect("/guia/comerebeber/")}>
-                    <Image src={close} alt="Voltar" className="absolute top-5 right-5 h-[1.5rem] sm:h-[2.5rem] w-fit"/>
+                <button className="absolute top-5 right-5 w-fit h-fit" onClick={() => redirect("/guia/comerebeber/")}>
+                    <Image src={close} alt="Voltar" className="h-[1.5rem] sm:h-[2.5rem] w-fit"/>
                 </button>
 
             </div>
+
+            <div className="w-full h-20 sm:h-8"/>
 
         </div>
     )

@@ -38,7 +38,7 @@ const ComerEBeber = () => {
 
                     <div className="flex flex-col
                                 w-full h-[60%]
-                                bg-white rounded-2xl overflow-auto p-2 sm:p-5 gap-y-5"
+                                bg-white rounded-2xl overflow-auto p-2 my-2 sm:p-5 gap-y-5"
                      style={{boxShadow: "inset 0 2px 4px 4px rgb(0 0 0 / 0.1)"}}>
 
                             <Link href="/guia/comerebeber/mcdonalds">
